@@ -1,0 +1,18 @@
+<Project>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-tvos')) != true AND $(TargetFramework.StartsWith('net7.0-ios')) != true AND $(TargetFramework.StartsWith('net7.0-maccatalyst')) != true ">
+    <Compile Remove="**\**\*.iOS.cs" />
+    <None Include="**\**\*.iOS.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+    <Compile Remove="**\iOS\**\*.cs" />
+    <None Include="**\iOS\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+  </ItemGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true ">
+    <Compile Remove="**\**\*.Android.cs" />
+    <None Include="**\**\*.Android.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+    <Compile Remove="**\Android\**\*.cs" />
+    <None Include="**\Android\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="bin\**;obj\**" />
+    <None Remove="bin\**;obj\**" />
+  </ItemGroup>
+</Project>

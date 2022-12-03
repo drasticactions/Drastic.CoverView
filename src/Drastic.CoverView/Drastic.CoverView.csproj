@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="../MultiTargeting.targets" />
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-ios;net7.0-tvos;net7.0-macos;net7.0-maccatalyst;</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>true</ImplicitUsings>
+		<IsPackable>true</IsPackable>
+		<Description>Drastic.CoverView a reimplmentation of TwitterCover.</Description>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+		<AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="iOS\" />
+		<None Remove="Android\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="iOS\" />
+		<Folder Include="Android\" />
+	</ItemGroup>
+</Project>
